@@ -5,11 +5,11 @@ import Base.==
     p1 = Point2D(1,2)
     p2 = Point2D(1,2)
     p3 = Point2D(1,3)
-    @test p1 == p2 
+    @test p1 == p2
     p1 = Point3D(1,2,3)
     p2 = Point3D(1,2,3)
     p3 = Point3D(1,3,4)
-    @test p1 == p2  
+    @test p1 == p2
     p1 = Point2D(0,0)
     p2 = Point2D(1,2)
     p3 = Point2D(3,4)
@@ -17,7 +17,7 @@ import Base.==
     poly1 = Polygon([p1,p2,p3])
     poly2 = Polygon([p1,p2,p3])
     poly3 = Polygon([p1,p2,p4])
-    @test poly1 == poly2 
+    @test poly1 == poly2
 end;
 
 @testset "Point2D Type Test" begin
@@ -48,7 +48,7 @@ end;
     @test isa(Polygon(0,0,0,2,1,2,1,0),Polygon)
 end;
 
-@testset "Polygon Constructor Test" begin #f 
+@testset "Polygon Constructor Test" begin #f
     square = Polygon([Point2D(0,0),Point2D(0,1),Point2D(1,1),Point2D(1,0)])
     @test Polygon([Point2D(0,0),Point2D(0,1),Point2D(1,1),Point2D(1,0)]) == square
     @test Polygon([0,0,0,1,1,1,1,0]) == square
@@ -65,7 +65,7 @@ right_triangle =Polygon([Point2D(0,0),Point2D(0,1),Point2D(1,0)])
 
 rectangle = Polygon([Point2D(0,0),Point2D(0,2),Point2D(1,2),Point2D(1,0)])
 
-parallelogram = Polygon([Point2D(0,0),Point2D(2,2),Point2D(8,2),Point2D(6,0)]) 
+parallelogram = Polygon([Point2D(0,0),Point2D(2,2),Point2D(8,2),Point2D(6,0)])
 
 @testset "Distance Test" begin
     @test isapprox(distance(Point2D(-2,-2),Point2D(2,6)), sqrt((2+2)^2 + (6+2)^2))
@@ -84,3 +84,8 @@ end;
     @test isapprox(area(parallelogram), abs(2*0 - 2*6))
     @test isapprox(area(rectangle), 1*2)
 end;
+
+@testset "Midpoint caclulations" begin
+    @test midpoint(triangle) == Point2D(1/3,1/3)
+    @test midpoint(rectangle) == Point2D(0.5,1)
+end
