@@ -1,5 +1,5 @@
 using Test
-import Base.==
+import Base.==, Statistics
 
 @testset "Same Type Test" begin
     p1 = Point2D(1,2)
@@ -86,6 +86,6 @@ end;
 end;
 
 @testset "Midpoint caclulations" begin
-    @test midpoint(triangle) == Point2D(1/3,1/3)
+    @test midpoint(right_triangle) == Point2D(1/3,1/3)
     @test midpoint(rectangle) == Point2D(0.5,1)
 end

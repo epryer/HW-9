@@ -1,6 +1,6 @@
 module Geometry
-import Base.==
-export Point2D, Point3D, Polygon, distance, distance2, perimeter, isRectangular, area
+import Base.==, Statistics
+export Point2D, Point3D, Polygon, distance, distance2, perimeter, isRectangular, area, midpoint
 
 """
 Point2D(x::Real, y::Real)
@@ -9,7 +9,7 @@ Next, takes a point in the form of a string, returns in the form, '(x,y)'.
 """
 struct Point2D
     x::Real
-    y::Real
+    y::Real 
 
     function Point2D(x::Real, y::Real)
         new(x, y)
@@ -169,12 +169,10 @@ function area(poly::Polygon)
 end
 
 """
-```
 midpoint(p::Polyon)
-```
 calculates the midpoint of the polygon.
 """
-midpoint(p::Polygon) = Point2D(mean(map(pt -> pt.x, p.points)), mean(map(pt -> pt.y, p.points)))
+midpoint(p::Polygon) = Point2D(mean(map(pt -> pt.x, p.pts)), mean(map(pt -> pt.y, p.pts)))
 
 
 end #Geometry module
