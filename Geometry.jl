@@ -1,5 +1,6 @@
 module Geometry
-import Base.==, Statistics
+using Statistics
+import Base.==
 export Point2D, Point3D, Polygon, distance, distance2, perimeter, isRectangular, area, midpoint
 
 """
